@@ -20,7 +20,8 @@
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.abbas0.AttendanceFrontend"
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
