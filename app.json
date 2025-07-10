@@ -40,7 +40,23 @@
     "updates": {
       "url": "https://u.expo.dev/672e7e92-50c2-4f5d-b803-9400a689aa84"
     },
-    "plugins": ["expo-secure-store", "expo-build-properties"],
+    "plugins": [
+      "expo-secure-store",
+      "expo-build-properties",
+      [
+        "react-native-permissions",
+        {
+          "permissions": {
+            "android": [
+              "android.permission.CAMERA",
+              "android.permission.ACCESS_FINE_LOCATION"
+            ],
+            "ios": ["CAMERA", "LOCATION_WHEN_IN_USE"]
+          }
+        }
+      ]
+    ],
+
     "hooks": {
       "postPublish": [
         {
