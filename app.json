@@ -41,7 +41,18 @@
       "url": "https://u.expo.dev/672e7e92-50c2-4f5d-b803-9400a689aa84"
     },
     "plugins": [
-      "expo-secure-store"
+      "expo-secure-store",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 33,
+            "targetSdkVersion": 33,
+            "buildToolsVersion": "33.0.0",
+            "kotlinVersion": "1.7.10"
+          }
+        }
+      ]
     ],
     "hooks": {
       "postPublish": [
