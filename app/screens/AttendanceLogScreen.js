@@ -72,20 +72,19 @@ function AttendanceLogScreen({ navigation }) {
   };
 
   useFocusEffect(
-  useCallback(() => {
-    const fetchData = async () => {
-      await loadMyProfile();
-    };
-    fetchData();
-  }, [])
-);
+    useCallback(() => {
+      const fetchData = async () => {
+        await loadMyProfile();
+      };
+      fetchData();
+    }, [])
+  );
 
-useEffect(() => {
-  if (employee) {
-    loadAttendaceLogs();
-  }
-}, [employee]);
-
+  useEffect(() => {
+    if (employee) {
+      loadAttendaceLogs();
+    }
+  }, [employee]);
 
   // Extract the project locations and attendance ranges from the user's profile
   useEffect(() => {
@@ -224,7 +223,8 @@ useEffect(() => {
       );
 
       if (!response.ok) {
-        console.log("Data sent:", response.data);
+        console.log("Data from the server:", response.data);
+        alert(response.data);
         console.log("Error saving attendance data:", response.problem);
         setUploadVisible(false);
       } else {
