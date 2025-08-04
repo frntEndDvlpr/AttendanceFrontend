@@ -55,7 +55,7 @@ function AccountScreen({ navigation }) {
             iconName="format-list-bulleted"
             rightIcon="chevron-right"
             backgroundColor={colors.blue}
-            onPress={() => console.log()}
+            onPress={() => navigation.navigate("AttendanceLogs")}
           />
           <ListItemSeparator />
           <AccountListItem

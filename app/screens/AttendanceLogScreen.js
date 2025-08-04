@@ -311,7 +311,7 @@ function AttendanceLogScreen({ navigation }) {
               location={item.location}
               status={item.status}
               total_hours={item.total_hours}
-              //employee={item.employee}
+              employee={item.employee}
               onPress={() => console.log("Log selected", item)}
             />
           )}
