@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
 
   welcomeLogo: {
-    height: 100,
+    height: 200,
     resizeMode: "contain",
   },
   buttonContainer: {
