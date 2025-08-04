@@ -22,11 +22,11 @@ function WelcomeScreen({ navigation }) {
       </View>
       <View style={styles.buttonContainer}>
         <AppButton
-          title={"login"}
+          title={"تسجيل الدخول"}
           onPress={() => navigation.navigate("Login")}
         />
         <AppButton
-          title={"register"}
+          title={"التسجيل"}
           color="secondary"
           onPress={() => navigation.navigate("Register")}
         />

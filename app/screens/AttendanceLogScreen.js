@@ -268,8 +268,8 @@ function AttendanceLogScreen({ navigation }) {
           />
           <AppText style={styles.coordText}>
             {isAtProjectLocation
-              ? `Within ${currentProjectTitle} geofence`
-              : "Outside of the geofence"}
+              ? `ضمن نطاق ${currentProjectTitle}`
+              : "خارج النطاق"}
           </AppText>
         </View>
         {isAtProjectLocation && (
@@ -284,7 +284,7 @@ function AttendanceLogScreen({ navigation }) {
           >
             <View style={styles.CamreaBtn}>
               <AppText style={styles.CamreaBtnText}>
-                {hasTimedIn ? "Time out" : "Time in"}
+                {hasTimedIn ? "انصراف" : "حضور"}
               </AppText>
             </View>
           </TouchableOpacity>
@@ -299,7 +299,7 @@ function AttendanceLogScreen({ navigation }) {
 
         <FlatList
           ListHeaderComponent={
-            <AppText style={styles.title}>My Attendace Log</AppText>
+            <AppText style={styles.title}>سجلات حضوري</AppText>
           }
           data={lastFiveLogs}
           keyExtractor={(attendace) => attendace.id.toString()}

@@ -23,7 +23,7 @@ const validationSchema = Yup.object().shape({
   employee_name: Yup.string().label("Employee Name"),
   name: Yup.string().required().label("Username"),
   email: Yup.string().required().email().label("Email"),
-  password: Yup.string().required().min(4).label("Password"),
+  password: Yup.string().required().min(8).label("Password"),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password"), null], "Passwords must match")
     .required("Confirm Password is required"),
@@ -150,7 +150,7 @@ function RegisterScreen({ navigation }) {
                     setFilteredEmployees([]);
                   }
                 }}
-                placeholder="Select Employee"
+                placeholder="الموظف"
                 flatListProps={{
                   keyExtractor: (_, idx) => idx.toString(),
                   renderItem: ({ item }) => (
@@ -185,14 +185,14 @@ function RegisterScreen({ navigation }) {
                     "Would you like to take a photo or choose one from your library?",
                     [
                       {
-                        text: "Take Photo",
+                        text: "التقط صورة",
                         onPress: () => TakePhoto(),
                       },
                       {
-                        text: "Choose from Library",
+                        text: "اختر صورة من الستوديو",
                         onPress: () => openMediaLibrary(),
                       },
-                      { text: "Cancel" },
+                      { text: "الغاء" },
                     ]
                   );
                 }}
@@ -209,14 +209,14 @@ function RegisterScreen({ navigation }) {
 
             <AppFormField
               name="name"
-              placeholder="Username"
+              placeholder="اسم المستخدم"
               maxLength={100}
               autoFocus
               icon="account"
             />
             <AppFormField
               name="email"
-              placeholder="Email"
+              placeholder="البريد الالكتروني"
               keyboardType="email-address"
               icon="email"
               autoCapitalize="none"
@@ -225,19 +225,19 @@ function RegisterScreen({ navigation }) {
             />
             <AppFormField
               name="password"
-              placeholder="Password"
+              placeholder="كلمة المرور"
               icon="lock"
               secureTextEntry
               textContentType="password"
             />
             <AppFormField
               name="confirmPassword"
-              placeholder="Confirm Password"
+              placeholder="تاكيد كلمة المرور"
               icon="lock"
               secureTextEntry
               textContentType="password"
             />
-            <SubmitButton title="Register" />
+            <SubmitButton title="تسجيل" />
           </View>
         </KeyboardAvoidingView>
       </AppForm>

@@ -67,12 +67,12 @@ function CorrectionRequestFormScreen({ navigation, route }) {
       result = await correctionRequestApi.updateCorrectionRequest(
         correctionId,
         requestData,
-        (progress) => setProgress(progress),
+        (progress) => setProgress(progress)
       );
     } else {
       result = await correctionRequestApi.addCorrectionRequest(
         requestData,
-        (progress) => setProgress(progress),
+        (progress) => setProgress(progress)
       );
     }
 
@@ -139,7 +139,7 @@ function CorrectionRequestFormScreen({ navigation, route }) {
             >
               <AppFormField
                 name="reason"
-                placeholder="Reason for Correction"
+                placeholder="سبب التصحيح"
                 maxLength={500}
                 icon="note-text"
                 multiline
@@ -149,20 +149,20 @@ function CorrectionRequestFormScreen({ navigation, route }) {
               <AppRadioGroup
                 name="punch_type"
                 options={[
-                  { label: "IN", value: "IN" },
-                  { label: "OUT", value: "OUT" },
+                  { label: "حضور", value: "IN" },
+                  { label: "انصراف", value: "OUT" },
                 ]}
               />
 
               <AppDateTimePicker
                 name="date"
-                placeholder="Date"
+                placeholder="تاريخ التصحيح"
                 mode="date"
                 icon="calendar-today"
               />
               <AppTimePicker
                 name="corrected_time"
-                placeholder="Corrected Time (HH:MM)"
+                placeholder="الوقت الصحيح (HH:MM)"
                 icon="clock-time-four"
               />
 

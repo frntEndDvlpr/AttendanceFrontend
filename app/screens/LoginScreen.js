@@ -92,7 +92,7 @@ function LoginScreen() {
                 autoCorrect={false}
                 icon="account"
                 name="username"
-                placeholder="Username"
+                placeholder="اسم المستخدم"
                 //textContentType="emailAddress"
               />
               <AppFormField
@@ -100,13 +100,13 @@ function LoginScreen() {
                 autoCorrect={false}
                 icon="lock"
                 name="password"
-                placeholder="Password"
+                placeholder="كلمة المرور"
                 secureTextEntry
                 textContentType="password"
               />
-              <SubmitButton title="login" />
+              <SubmitButton title="تسجيل الدخول" />
             </AppForm>
-            <Button title="Forgot Your Password?" />
+            <Button title="نسيت كلمة المرور؟" />
           </View>
         </ScrollView>
       </TouchableWithoutFeedback>

@@ -85,7 +85,7 @@ function EmployeeFormScreen({ navigation, route }) {
       ? await employeesApi.updateEmployee(
           employee.id,
           dataToSubmit,
-          setProgress,
+          setProgress
         )
       : await employeesApi.addEmployee(dataToSubmit, setProgress);
 
@@ -147,45 +147,45 @@ function EmployeeFormScreen({ navigation, route }) {
             >
               <AppFormField
                 name="name"
-                placeholder="Full Name"
+                placeholder="الاسم الكامل"
                 maxLength={100}
                 autoFocus
               />
               <AppFormField
                 name="employeeCode"
-                placeholder="Employee Code"
+                placeholder="رقم الموظف"
                 maxLength={10}
                 icon="account"
               />
               <AppFormField
                 name="email"
-                placeholder="Email"
+                placeholder="البريد الالكتروني"
                 keyboardType="email-address"
                 icon="email"
               />
               <AppFormField
                 name="phone"
-                placeholder="Phone"
+                placeholder="رقم الهاتق"
                 icon="phone"
                 keyboardType="phone-pad"
               />
-              <AppFormField name="designation" placeholder="Designation" />
-              <AppFormField name="department" placeholder="Department" />
+              <AppFormField name="designation" placeholder="المنصب" />
+              <AppFormField name="department" placeholder="القسم" />
               <AppPicker
                 icon="apps"
                 items={projects}
-                placeholder="Select Projects"
+                placeholder="اختر موقعا"
                 selectedItems={selectedProjects}
                 onSelectItems={setSelectedProjects}
               />
               <AppPicker
                 icon="account"
                 items={user}
-                placeholder="Select User"
+                placeholder="المستخدم"
                 selectedItems={selectedUser}
                 onSelectItems={setSelectedUser}
               />
-              <SubmitButton title={employee ? "Update" : "Save"} />
+              <SubmitButton title={employee ? "تحديث" : "حفظ"} />
             </AppForm>
           </ScrollView>
         </AppScreen>

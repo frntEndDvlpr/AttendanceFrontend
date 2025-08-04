@@ -15,7 +15,7 @@ function SettingsScreen({ navigation }) {
     return (
       <View style={styles.unauthorizedContainer}>
         <AppText style={styles.unauthorizedText}>
-          🚫 You are not authorized to access this page.
+          🚫 ليس مصرح بالوصول لهذه الصفحة.
         </AppText>
       </View>
     );
@@ -27,7 +27,7 @@ function SettingsScreen({ navigation }) {
         <View style={styles.container}>
           <AppIcon name="account-group" backgroundColor={colors.secondary} />
           <View style={styles.innerContainer}>
-            <AppText style={styles.titl}>Users</AppText>
+            <AppText style={styles.titl}>المستخدمين</AppText>
             <ListItemSeparator />
             <AppText style={styles.subTitle}>Manage your users details</AppText>
           </View>
@@ -39,13 +39,17 @@ function SettingsScreen({ navigation }) {
         </View>
       </TouchableWithoutFeedback>
 
-      <TouchableWithoutFeedback onPress={() => navigation.navigate("Employees")}>
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate("Employees")}
+      >
         <View style={styles.container}>
           <AppIcon name="account-tie" backgroundColor={colors.primary} />
           <View style={styles.innerContainer}>
-            <AppText style={styles.titl}>Employees</AppText>
+            <AppText style={styles.titl}>الموظفين</AppText>
             <ListItemSeparator />
-            <AppText style={styles.subTitle}>Manage your employees details</AppText>
+            <AppText style={styles.subTitle}>
+              Manage your employees details
+            </AppText>
           </View>
           <TaskListIcon
             name="chevron-right"
@@ -57,11 +61,16 @@ function SettingsScreen({ navigation }) {
 
       <TouchableWithoutFeedback onPress={() => navigation.navigate("Projecs")}>
         <View style={styles.container}>
-          <AppIcon name="folder-multiple-outline" backgroundColor={colors.danger} />
+          <AppIcon
+            name="folder-multiple-outline"
+            backgroundColor={colors.danger}
+          />
           <View style={styles.innerContainer}>
-            <AppText style={styles.titl}>Projects</AppText>
+            <AppText style={styles.titl}>المواقع</AppText>
             <ListItemSeparator />
-            <AppText style={styles.subTitle}>Manage your projects details</AppText>
+            <AppText style={styles.subTitle}>
+              Manage your projects details
+            </AppText>
           </View>
           <TaskListIcon
             name="chevron-right"
@@ -71,11 +80,13 @@ function SettingsScreen({ navigation }) {
         </View>
       </TouchableWithoutFeedback>
 
-      <TouchableWithoutFeedback onPress={() => navigation.navigate("CorrectionRequest")}>
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate("CorrectionRequest")}
+      >
         <View style={styles.container}>
           <AppIcon name="file-check-outline" backgroundColor={colors.blue} />
           <View style={styles.innerContainer}>
-            <AppText style={styles.titl}>Approvals</AppText>
+            <AppText style={styles.titl}>الموتفقات</AppText>
             <ListItemSeparator />
             <AppText style={styles.subTitle}>Review approval requests.</AppText>
           </View>

@@ -51,7 +51,7 @@ function AccountScreen({ navigation }) {
       <ScrollView>
         <View style={styles.list}>
           <AccountListItem
-            title="My Attendance Logs"
+            title="سجلات الحضور"
             iconName="format-list-bulleted"
             rightIcon="chevron-right"
             backgroundColor={colors.blue}
@@ -59,7 +59,7 @@ function AccountScreen({ navigation }) {
           />
           <ListItemSeparator />
           <AccountListItem
-            title="My Corrections Requests"
+            title="طلبات التصحيح"
             iconName="file-document-edit-outline"
             rightIcon="chevron-right"
             backgroundColor={colors.secondary}
@@ -67,7 +67,7 @@ function AccountScreen({ navigation }) {
           />
           <ListItemSeparator />
           <AccountListItem
-            title="My Leaves"
+            title="الاجازات"
             iconName="airplane-clock"
             rightIcon="chevron-right"
             backgroundColor={colors.primary}
@@ -75,7 +75,7 @@ function AccountScreen({ navigation }) {
           />
         </View>
         <AccountListItem
-          title="Log Out"
+          title="تسجيل الخروج"
           iconName="logout"
           backgroundColor={colors.danger}
           onPress={handelLogout}

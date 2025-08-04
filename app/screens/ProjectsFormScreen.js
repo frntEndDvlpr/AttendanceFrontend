@@ -23,8 +23,8 @@ import { Keyboard } from "react-native";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().label("Title"),
-  description: Yup.string().required().label("Description"),
-  start_date: Yup.string().notRequired().nullable().label("Start Date"),
+  description: Yup.string().label("Description"),
+  start_date: Yup.string().nullable().label("Start Date"),
   end_date: Yup.string().nullable().label("End Date"),
   client: Yup.string().nullable().label("Client"),
   latitude: Yup.string()
@@ -48,7 +48,7 @@ function ProjectsFormScreen({ navigation, route }) {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [radius, setRadius] = useState(100);
   const [attendanceRange, setAttendanceRange] = useState(
-    project?.attendanceRange || 0,
+    project?.attendanceRange || 0
   );
 
   // Permissioning and getting the current location
@@ -123,11 +123,11 @@ function ProjectsFormScreen({ navigation, route }) {
       result = await projectApi.updateProject(
         project.id,
         dataToSubmit,
-        (progress) => setProgress(progress),
+        (progress) => setProgress(progress)
       );
     } else {
       result = await projectApi.addProject(dataToSubmit, (progress) =>
-        setProgress(progress),
+        setProgress(progress)
       );
     }
 
@@ -215,7 +215,7 @@ function ProjectsFormScreen({ navigation, route }) {
                 />
               </View>
               <TextInput
-                placeholder="Attendance Range"
+                placeholder="النطاق"
                 keyboardType="numeric"
                 value={attendanceRange.toString()}
                 onChangeText={(text) => setAttendanceRange(Number(text))}
@@ -240,15 +240,15 @@ function ProjectsFormScreen({ navigation, route }) {
                 />
                 <TaskFormField
                   name="title"
-                  placeholder="Title"
+                  placeholder="الموقع"
                   maxLength={100}
                   autoFocus
                 />
-                <TaskFormField name="description" placeholder="Description" />
+                {/* <TaskFormField name="description" placeholder="Description" />
                 <AppDateTimePicker name="start_date" placeholder="Start Date" />
                 <AppDateTimePicker name="end_date" placeholder="End Date" />
-                <TaskFormField name="client" placeholder="Client" />
-                <SubmitButton title={project ? "Update" : "Save"} />
+                <TaskFormField name="client" placeholder="Client" /> */}
+                <SubmitButton title={project ? "تحديث" : "حفظ"} />
               </AppForm>
             </ScrollView>
           </View>

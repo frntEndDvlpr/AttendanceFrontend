@@ -47,7 +47,7 @@ function UserFormScreen({ navigation, route }) {
     const fetchEmployee = async () => {
       if (user?.associatedEmployee) {
         const response = await employeesApi.getEmployeeById(
-          user.associatedEmployee,
+          user.associatedEmployee
         );
         if (response.ok) {
           setEmployee(response.data);
@@ -127,7 +127,7 @@ function UserFormScreen({ navigation, route }) {
                 placeholder="Associated Employee"
                 maxLength={100}
               />
-              <AppFornSwitch name="is_staff" label="Is Staff" />
+              <AppFornSwitch name="is_staff" label="Admin" />
               <SubmitButton title={user ? "Update" : "Save"} />
             </AppForm>
           </ScrollView>
