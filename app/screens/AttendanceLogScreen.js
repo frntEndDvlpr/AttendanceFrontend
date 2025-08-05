@@ -29,6 +29,7 @@ function AttendanceLogScreen({ navigation }) {
   const [photoDateTime, setPhotoDateTime] = useState(null);
   const [photoTimeZone, setPhotoTimeZone] = useState(null);
   const [attendaceLogs, setAttendaceLogs] = useState([]);
+  const [filteredLogs, setFilteredLogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [response, setResponse] = useState(null);
@@ -47,15 +48,26 @@ function AttendanceLogScreen({ navigation }) {
       setResponse(response.problem);
     } else {
       setError(false);
-      const filteredLogs = response.data.filter(
-        (log) => log.employee === employee
-      );
-      setAttendaceLogs(filteredLogs);
+
+      setAttendaceLogs(response.data);
       //console.log("Success:", response.data);
     }
   };
 
-  const sortedAttendaceLogs = attendaceLogs.sort((a, b) => b.id - a.id);
+  useEffect(() => {
+    //console.log("All Attendance Logs:", attendaceLogs);
+    //console.log("Current Employee ID:", employee);
+
+    const logs = attendaceLogs.filter(
+      (log) => log.employee && log.employee.id === employee
+    );
+
+    //console.log("Filtered Logs:", logs);
+
+    setFilteredLogs(logs);
+  }, [attendaceLogs, employee]);
+
+  const sortedAttendaceLogs = filteredLogs.sort((a, b) => b.id - a.id);
   const lastFiveLogs = sortedAttendaceLogs.slice(0, 5);
 
   // Load the user's profile data
@@ -311,7 +323,7 @@ function AttendanceLogScreen({ navigation }) {
               location={item.location}
               status={item.status}
               total_hours={item.total_hours}
-              employee={item.employee}
+              //employee={item.employee.name}
               onPress={() => console.log("Log selected", item)}
             />
           )}

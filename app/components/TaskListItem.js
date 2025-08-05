@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, TouchableHighlight, Image } from "react-native";
+import { View, StyleSheet, TouchableHighlight } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
@@ -34,12 +34,20 @@ function TaskListItem({
           underlayColor={colors.lightGreen}
         >
           <View style={styles.Container}>
-            {date && (
-              <AppText style={styles.dateText}>
-                <TaskListIcon name="" />
-                {date}
-              </AppText>
-            )}
+            <View style={styles.employeeDateConatiner}>
+              {employee && (
+                <AppText style={styles.dateText}>
+                  <TaskListIcon name="account" iconColor={colors.blue} />
+                  {employee}
+                </AppText>
+              )}
+              {date && (
+                <AppText style={styles.dateText}>
+                  <TaskListIcon name="calendar" iconColor={colors.midGray} />
+                  {date}
+                </AppText>
+              )}
+            </View>
             <View style={styles.midContainer}>
               {location && (
                 <AppText style={styles.assignee}>
@@ -59,15 +67,7 @@ function TaskListItem({
                   {time_out}
                 </AppText>
               )}
-              {employee && (
-                <AppText style={styles.assignee}>
-                  <TaskListIcon
-                    name="map-marker-outline"
-                    iconColor={colors.blue}
-                  />
-                  {employee}
-                </AppText>
-              )}
+
               {typeof total_hours === "number" && (
                 <AppText style={styles.assignee}>
                   <TaskListIcon
@@ -114,6 +114,10 @@ const styles = StyleSheet.create({
 
   dateText: { color: colors.black, fontWeight: "bold" },
   statusText: { color: colors.primary, fontWeight: "bold" },
+  employeeDateConatiner: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
 });
 
 export default TaskListItem;
