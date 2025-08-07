@@ -23,11 +23,18 @@ const validationSchema = Yup.object().shape({
   employee_name: Yup.string().label("Employee Name"),
   name: Yup.string().required().label("Username"),
   email: Yup.string().required().email().label("Email"),
-  password: Yup.string().required().min(8).label("Password"),
+  password: Yup.string()
+    .min(8)
+    .label("Password")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/,
+      "Password must include uppercase, lowercase letters, numbers, and at least one special character"
+    )
+    .required("Requ"),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password"), null], "Passwords must match")
     .required("Confirm Password is required"),
-  imageUri: Yup.mixed(),
+  imageUri: Yup.mixed().required(),
 });
 
 function RegisterScreen({ navigation }) {

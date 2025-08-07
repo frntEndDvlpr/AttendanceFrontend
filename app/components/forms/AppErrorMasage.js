@@ -12,6 +12,7 @@ function AppErrorMasage({ error, visible }) {
 const styles = StyleSheet.create({
   error: {
     color: colors.danger,
+    marginBottom: 15,
   },
 });
 
