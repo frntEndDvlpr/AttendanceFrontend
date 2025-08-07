@@ -29,7 +29,7 @@ function SettingsScreen({ navigation }) {
           <View style={styles.innerContainer}>
             <AppText style={styles.titl}>المستخدمين</AppText>
             <ListItemSeparator />
-            <AppText style={styles.subTitle}>Manage your users details</AppText>
+            <AppText style={styles.subTitle}>ادارة المستخدمين</AppText>
           </View>
           <TaskListIcon
             name="chevron-right"
@@ -47,9 +47,7 @@ function SettingsScreen({ navigation }) {
           <View style={styles.innerContainer}>
             <AppText style={styles.titl}>الموظفين</AppText>
             <ListItemSeparator />
-            <AppText style={styles.subTitle}>
-              Manage your employees details
-            </AppText>
+            <AppText style={styles.subTitle}>ادارة الموظفين</AppText>
           </View>
           <TaskListIcon
             name="chevron-right"
@@ -69,7 +67,7 @@ function SettingsScreen({ navigation }) {
             <AppText style={styles.titl}>المواقع</AppText>
             <ListItemSeparator />
             <AppText style={styles.subTitle}>
-              Manage your projects details
+              ادارة مواقع الحضور والانصراف
             </AppText>
           </View>
           <TaskListIcon
@@ -86,9 +84,11 @@ function SettingsScreen({ navigation }) {
         <View style={styles.container}>
           <AppIcon name="file-check-outline" backgroundColor={colors.blue} />
           <View style={styles.innerContainer}>
-            <AppText style={styles.titl}>الموتفقات</AppText>
+            <AppText style={styles.titl}>الموافقات</AppText>
             <ListItemSeparator />
-            <AppText style={styles.subTitle}>Review approval requests.</AppText>
+            <AppText style={styles.subTitle}>
+              الموافقات على طلبات التصحيح والاجازات
+            </AppText>
           </View>
           <TaskListIcon
             name="chevron-right"

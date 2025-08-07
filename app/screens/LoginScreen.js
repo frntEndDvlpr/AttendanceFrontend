@@ -30,6 +30,7 @@ const validationSchema = Yup.object().shape({
 });
 
 function LoginScreen() {
+  const [showPassword, setShowPassword] = useState(false);
   const [loginFailed, setLoginFailed] = useState(false);
   const authContext = useContext(AuthContext);
 
@@ -101,8 +102,10 @@ function LoginScreen() {
                 icon="lock"
                 name="password"
                 placeholder="كلمة المرور"
-                secureTextEntry
+                secureTextEntry={!showPassword}
                 textContentType="password"
+                iconRight={showPassword ? "eye-off" : "eye"}
+                onIconRightPress={() => setShowPassword(!showPassword)}
               />
               <SubmitButton title="تسجيل الدخول" />
             </AppForm>

@@ -38,6 +38,8 @@ function RegisterScreen({ navigation }) {
   const [progress, setProgress] = useState(0);
   const [uploadVisible, setUploadVisible] = useState(false);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const fetchEmployees = async () => {
     const result = await employeesApi.getEmployees();
@@ -227,16 +229,24 @@ function RegisterScreen({ navigation }) {
               name="password"
               placeholder="كلمة المرور"
               icon="lock"
-              secureTextEntry
+              secureTextEntry={!showPassword}
               textContentType="password"
+              iconRight={showPassword ? "eye-off" : "eye"}
+              onIconRightPress={() => setShowPassword(!showPassword)}
             />
+
             <AppFormField
               name="confirmPassword"
               placeholder="تاكيد كلمة المرور"
               icon="lock"
-              secureTextEntry
+              secureTextEntry={!showConfirmPassword}
               textContentType="password"
+              iconRight={showConfirmPassword ? "eye-off" : "eye"}
+              onIconRightPress={() =>
+                setShowConfirmPassword(!showConfirmPassword)
+              }
             />
+
             <SubmitButton title="تسجيل" />
           </View>
         </KeyboardAvoidingView>
