@@ -9,10 +9,10 @@ const getProjects = () => apiClient.get(endPoint);
 const addProject = (project, onUploadProgress) => {
   const data = new FormData();
   data.append("title", project.title);
-  data.append("description", project.description);
-  data.append("start_date", project.start_date);
-  data.append("end_date", project.end_date);
-  data.append("client", project.client);
+  //data.append("description", project.description);
+  //data.append("start_date", project.start_date);
+  //data.append("end_date", project.end_date);
+  //data.append("client", project.client);
   data.append("attendanceRange", project.attendanceRange);
   data.append("location", project.location);
   /* if (project.location) {
@@ -34,10 +34,10 @@ const addProject = (project, onUploadProgress) => {
 const updateProject = (id, project, onUploadProgress) => {
   const data = new FormData();
   data.append("title", project.title);
-  data.append("description", project.description);
-  data.append("start_date", project.start_date);
-  data.append("end_date", project.end_date);
-  data.append("client", project.client);
+  //data.append("description", project.description);
+  //data.append("start_date", project.start_date);
+  //data.append("end_date", project.end_date);
+  //data.append("client", project.client);
   data.append("attendanceRange", project.attendanceRange);
   data.append("location", project.location);
   /*  if (project.location) {

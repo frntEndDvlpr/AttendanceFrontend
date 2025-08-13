@@ -26,10 +26,10 @@ import authStorage from "../auth/storage";
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required().label("Username"),
-  password: Yup.string().required().min(4).label("Password"),
+  password: Yup.string().required().label("Password"),
 });
 
-function LoginScreen() {
+function LoginScreen({ navigation }) {
   const [showPassword, setShowPassword] = useState(false);
   const [loginFailed, setLoginFailed] = useState(false);
   const authContext = useContext(AuthContext);
@@ -109,7 +109,10 @@ function LoginScreen() {
               />
               <SubmitButton title="تسجيل الدخول" />
             </AppForm>
-            <Button title="نسيت كلمة المرور؟" />
+            <Button
+              onPress={() => navigation.navigate("RestorePassword")}
+              title="نسيت كلمة المرور؟"
+            />
           </View>
         </ScrollView>
       </TouchableWithoutFeedback>

@@ -5,6 +5,7 @@ import LoginScreen from "../../app/screens/LoginScreen";
 import RegisterScreen from "../screens/Register";
 import WelcomeScreen from "../../app/screens/WelcomeScreen";
 import AppNavigator from "./AppNavigator";
+import RestorePasswordScreen from "../screens/RestorePasswordScreen";
 
 const Stak = createNativeStackNavigator();
 
@@ -17,6 +18,7 @@ const AuthNavigator = () => (
     />
     <Stak.Screen name="Login" component={LoginScreen} />
     <Stak.Screen name="Register" component={RegisterScreen} />
+    <Stak.Screen name="RestorePassword" component={RestorePasswordScreen} />
     <Stak.Screen
       name="appnavigation"
       component={AppNavigator}

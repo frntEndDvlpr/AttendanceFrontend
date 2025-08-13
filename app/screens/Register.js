@@ -30,9 +30,9 @@ const validationSchema = Yup.object().shape({
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/,
       "Password must include uppercase, lowercase letters, numbers, and at least one special character"
     )
-    .required("Requ"),
+    .required(),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Passwords must match")
+    .oneOf([Yup.ref("password"), null], "Passwords not match")
     .required("Confirm Password is required"),
   imageUri: Yup.mixed().required(),
 });
