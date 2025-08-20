@@ -117,8 +117,35 @@ function RegisterScreen({ navigation }) {
     }
 
     if (!result.ok) {
+      console.error("Error creating user:", result.data);
+      let errorMsg = "حدث خطأ أثناء التسجيل"; // Default message
+
+      if (result.data) {
+        if (typeof result.data === "string") {
+          errorMsg = result.data;
+        } else if (result.data.detail) {
+          // Example: Authentication error
+          errorMsg = "بيانات الدخول غير صحيحة";
+        } else if (result.data.email) {
+          // Example: Email already exists
+          errorMsg = "البريد الإلكتروني مستخدم بالفعل";
+        } else if (result.data.password) {
+          // Example: Password validation error
+          errorMsg = "كلمة المرور غير قوية بما فيه الكفاية";
+        } else if (result.data.username) {
+          // Example: Username already exists
+          errorMsg =
+            "اسم المستخدم يجب ان لا يحتوي على مسافات، ادخل الاسم الاول فقط";
+        } else if (typeof result.data === "object") {
+          // Fallback: show first error
+          const firstKey = Object.keys(result.data)[0];
+          errorMsg = Array.isArray(result.data[firstKey])
+            ? result.data[firstKey][0]
+            : result.data[firstKey];
+        }
+      }
       setUploadVisible(false);
-      return alert("Could not save the user!");
+      return alert(errorMsg);
     }
 
     setProgress(1);

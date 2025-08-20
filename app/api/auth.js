@@ -70,8 +70,17 @@ const updateUser = (id, user, onUploadProgress) => {
 };
 
 // Function to log in a user by sending username and password to the server API
-const login = (username, password) =>
-  apiClient.post("token/", { username, password });
+const login = (username, password, onUploadProgress) =>
+  apiClient.post(
+    "token/",
+    { username, password },
+    {
+      onUploadProgress: (event) => {
+        const progress = event.loaded / event.total;
+        if (onUploadProgress) onUploadProgress(progress);
+      },
+    }
+  );
 
 // Function to refresh the token using the refresh token
 const refreshToken = (refresh) =>

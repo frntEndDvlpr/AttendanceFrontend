@@ -23,6 +23,7 @@ import {
 import AuthApi from "../api/auth";
 import AuthContext from "../auth/context";
 import authStorage from "../auth/storage";
+import UploadScreen from "./UploadScreen";
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required().label("Username"),
@@ -32,14 +33,25 @@ const validationSchema = Yup.object().shape({
 function LoginScreen({ navigation }) {
   const [showPassword, setShowPassword] = useState(false);
   const [loginFailed, setLoginFailed] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [uploadVisible, setUploadVisible] = useState(false);
   const authContext = useContext(AuthContext);
 
   // Function to handle the form submission for user login
   const handelSubmit = async ({ username, password }) => {
-    const result = await AuthApi.login(username, password);
+    setProgress(0);
+    setUploadVisible(true);
+    const result = await AuthApi.login(username, password, (progress) => {
+      setProgress(progress);
+    });
     if (!result.ok) {
+      const errorMsg =
+        typeof result.data === "object"
+          ? JSON.stringify(result.data)
+          : result.data;
+      setUploadVisible(false);
       setLoginFailed(true);
-      return;
+      return alert(errorMsg);
     }
 
     setLoginFailed(false);
@@ -77,6 +89,12 @@ function LoginScreen({ navigation }) {
                 color={colors.secondary}
               />
             </View>
+
+            <UploadScreen
+              onDone={() => setUploadVisible(false)}
+              progress={progress}
+              visible={uploadVisible}
+            />
 
             <AppErrorMasage
               error="Invalid username and/or password!"
